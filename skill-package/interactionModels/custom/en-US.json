@@ -1,0 +1,348 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "my survey",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NextIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PreviousIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "DecimalIntent",
+                    "slots": [
+                        {
+                            "name": "decimal_sign",
+                            "type": "DECIMAL_SIGN"
+                        },
+                        {
+                            "name": "decimal_whole",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "decimal_fraction",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "decimal_units",
+                            "type": "DECIMAL_UNITS"
+                        }
+                    ],
+                    "samples": [
+                        "point {decimal_fraction} {decimal_units}",
+                        "{decimal_whole} point {decimal_fraction} {decimal_units}",
+                        "{decimal_whole} {decimal_units}",
+                        "{decimal_whole}",
+                        "{decimal_sign} point {decimal_fraction}",
+                        "{decimal_sign} {decimal_whole}",
+                        "{decimal_sign} {decimal_whole} point {decimal_fraction}",
+                        "point {decimal_fraction}",
+                        "{decimal_whole} dot {decimal_fraction}",
+                        "{decimal_whole} point {decimal_fraction}"
+                    ]
+                },
+                {
+                    "name": "TemperatureIntent",
+                    "samples": [
+                        "record temperature of {slot_three} {slot_three_units}",
+                        "record temperature of {slot_three}",
+                        "record temperature"
+                    ],
+                    "slots": [
+                        {
+                            "name": "slot_three",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "slot_three_units",
+                            "type": "DECIMAL_UNITS"
+                        }
+                    ]
+                },
+                {
+                    "name": "FormIntent",
+                    "samples": [
+                        "start form for {date}",
+                        "start form"
+                    ],
+                    "slots": [
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE"
+                        },
+                        {
+                            "name": "slot_one",
+                            "type": "YES_NO"
+                        },
+                        {
+                            "name": "slot_two",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "slot_three",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "slot_three_units",
+                            "type": "DECIMAL_UNITS"
+                        },
+                        {
+                            "name": "slot_four",
+                            "type": "ELEMENTS"
+                        }
+                    ]
+                },
+                {
+                    "name": "ReviewFormIntent",
+                    "slots": [],
+                    "samples": [
+                        "review form"
+                    ]
+                },
+                {
+                    "name": "SaveFormIntent",
+                    "slots": [],
+                    "samples": [
+                        "save form"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "DECIMAL_SIGN",
+                    "values": [
+                        {
+                            "id": "+",
+                            "name": {
+                                "value": "positive",
+                                "synonyms": [
+                                    "plus"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "-",
+                            "name": {
+                                "value": "negative",
+                                "synonyms": [
+                                    "minus"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "DECIMAL_UNITS",
+                    "values": [
+                        {
+                            "id": "C",
+                            "name": {
+                                "value": "Celcius",
+                                "synonyms": [
+                                    "degree celcius",
+                                    "degrees celcius",
+                                    "centigrade"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "F",
+                            "name": {
+                                "value": "Fahrenheit",
+                                "synonyms": [
+                                    "degree fahrenheit",
+                                    "degrees fahrenheit"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "YES_NO",
+                    "values": [
+                        {
+                            "id": "0",
+                            "name": {
+                                "value": "No",
+                                "synonyms": []
+                            }
+                        },
+                        {
+                            "id": "1",
+                            "name": {
+                                "value": "Yes",
+                                "synonyms": []
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ELEMENTS",
+                    "values": [
+                        {
+                            "id": "O",
+                            "name": {
+                                "value": "Oxygen",
+                                "synonyms": []
+                            }
+                        },
+                        {
+                            "id": "H",
+                            "name": {
+                                "value": "Hydrogen",
+                                "synonyms": []
+                            }
+                        },
+                        {
+                            "id": "H2O",
+                            "name": {
+                                "value": "Hydrogen plus Oxygen",
+                                "synonyms": [
+                                    "Oxygen plus Hydrogen"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "N",
+                            "name": {
+                                "value": "Nitrogen",
+                                "synonyms": []
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "DecimalIntent",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "decimal_sign",
+                            "type": "DECIMAL_SIGN",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "decimal_whole",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "decimal_fraction",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "decimal_units",
+                            "type": "DECIMAL_UNITS",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "TemperatureIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "slot_three",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "slot_three_units",
+                            "type": "DECIMAL_UNITS",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "FormIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "slot_one",
+                            "type": "YES_NO",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "slot_two",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "slot_three",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "slot_three_units",
+                            "type": "DECIMAL_UNITS",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "slot_four",
+                            "type": "ELEMENTS",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
